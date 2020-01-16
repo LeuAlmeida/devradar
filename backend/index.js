@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://omnistack:devradaromnistack@cluster0-dzmtm.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}${process.env.MONGO_CLUSTER}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
