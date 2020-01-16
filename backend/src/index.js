@@ -1,6 +1,7 @@
 require('dotenv/config');
 const express = require('express');
 const mongoose = require('mongoose');
+const routes = require('./routes');
 
 const app = express();
 
@@ -10,7 +11,6 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONG
 });
 
 app.use(express.json());
-
-app.get('/', (req, res) => res.json({ ok: 'Hello World' }));
+app.use(routes);
 
 app.listen(3335);
