@@ -36,7 +36,98 @@ export default function src() {
           <button type="submit">Salvar</button>
         </form>
       </aside>
-      <main />
+      <main>
+        <ul>
+          <li className="dev-item">
+            <header>
+              <img
+                src="https://avatars3.githubusercontent.com/u/42948574?s=460&v=4"
+                alt="Léu Almeida"
+              />
+
+              <div className="user-info">
+                <strong>Léu Almeida</strong>
+                <span>ReactJS, React Native, Node.js</span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
+                distinctio obcaecati velit quia beatae eius deserunt omnis
+                tempora, deleniti molestias, culpa dolore amet cumque! Possimus
+                odit fugiat delectus vitae tempore?
+              </p>
+              <a href="https://github.com/leualmeida">
+                Acessar perfil no Github
+              </a>
+            </header>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img
+                src="https://avatars3.githubusercontent.com/u/42948574?s=460&v=4"
+                alt="Léu Almeida"
+              />
+
+              <div className="user-info">
+                <strong>Léu Almeida</strong>
+                <span>ReactJS, React Native, Node.js</span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
+                distinctio obcaecati velit quia beatae eius deserunt omnis
+                tempora, deleniti molestias, culpa dolore amet cumque! Possimus
+                odit fugiat delectus vitae tempore?
+              </p>
+              <a href="https://github.com/leualmeida">
+                Acessar perfil no Github
+              </a>
+            </header>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img
+                src="https://avatars3.githubusercontent.com/u/42948574?s=460&v=4"
+                alt="Léu Almeida"
+              />
+
+              <div className="user-info">
+                <strong>Léu Almeida</strong>
+                <span>ReactJS, React Native, Node.js</span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
+                distinctio obcaecati velit quia beatae eius deserunt omnis
+                tempora, deleniti molestias, culpa dolore amet cumque! Possimus
+                odit fugiat delectus vitae tempore?
+              </p>
+              <a href="https://github.com/leualmeida">
+                Acessar perfil no Github
+              </a>
+            </header>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img
+                src="https://avatars3.githubusercontent.com/u/42948574?s=460&v=4"
+                alt="Léu Almeida"
+              />
+
+              <div className="user-info">
+                <strong>Léu Almeida</strong>
+                <span>ReactJS, React Native, Node.js</span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
+                distinctio obcaecati velit quia beatae eius deserunt omnis
+                tempora, deleniti molestias, culpa dolore amet cumque! Possimus
+                odit fugiat delectus vitae tempore?
+              </p>
+              <a href="https://github.com/leualmeida">
+                Acessar perfil no Github
+              </a>
+            </header>
+          </li>
+        </ul>
+      </main>
     </div>
   );
 }
