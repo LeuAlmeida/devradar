@@ -22,6 +22,19 @@ li.dev-item header .user-info {
   margin-left: 10px;
 }
 
+li.dev-item header .user-actions {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  margin-left: 15px;
+}
+
+li.dev-item header .user-actions button {
+  border: 0;
+  background: 0;
+  cursor: pointer;
+}
+
 .user-info strong {
   display: block;
   font-size: 16px;
