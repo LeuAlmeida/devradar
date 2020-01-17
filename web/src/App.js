@@ -74,6 +74,7 @@ function App() {
                 type="number"
                 placeholder="Latitude"
                 value={latitude}
+                onChange={e => setLatitude(e.target.value)}
                 required
               />
             </div>
@@ -88,6 +89,7 @@ function App() {
                 type="number"
                 placeholder="Longitude"
                 value={longitude}
+                onChange={e => setLongitude(e.target.value)}
                 required
               />
             </div>
