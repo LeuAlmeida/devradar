@@ -72,5 +72,7 @@ li.dev-item a:hover {
 }
 
 li.dev-item a svg {
+  display: flex;
+  align-self: center;
   margin-left: 5px;
 }
