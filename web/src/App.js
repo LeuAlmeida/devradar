@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FaGithub, FaCode, FaThumbtack, FaChevronRight } from 'react-icons/fa';
 
@@ -10,7 +10,27 @@ import './Main.css';
 
 import world from './assets/images/world.png';
 
-export default function src() {
+function App() {
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+
+        setLatitude(latitude);
+        setLongitude(longitude);
+      },
+      err => {
+        console.log(err);
+      },
+      {
+        timeout: 30000,
+      }
+    );
+  }, []);
+
   return (
     <div id="app">
       <aside>
@@ -51,7 +71,9 @@ export default function src() {
               <input
                 name="latitude"
                 id="latitude"
+                type="number"
                 placeholder="Latitude"
+                value={latitude}
                 required
               />
             </div>
@@ -63,7 +85,9 @@ export default function src() {
               <input
                 name="longitude"
                 id="longitude"
+                type="number"
                 placeholder="Longitude"
+                value={longitude}
                 required
               />
             </div>
@@ -101,3 +125,5 @@ export default function src() {
     </div>
   );
 }
+
+export default App;
