@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
-
 import { FaGithub, FaCode, FaThumbtack, FaChevronRight } from 'react-icons/fa';
+import api from './services/api';
 
 import './global.css';
 import './App.css';
@@ -11,6 +11,9 @@ import './Main.css';
 import world from './assets/images/world.png';
 
 function App() {
+  const [githubUsername, setGithubUsername] = useState('');
+  const [techs, setTechs] = useState('');
+
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
 
@@ -31,6 +34,20 @@ function App() {
     );
   }, []);
 
+  async function handleAddDev(e) {
+    e.preventDefault();
+
+    const response = await api.post('/devs', {
+      github_username: githubUsername,
+      techs,
+      latitude,
+      longitude,
+    });
+
+    setGithubUsername('');
+    setTechs('');
+  }
+
   return (
     <div id="app">
       <aside>
@@ -38,7 +55,7 @@ function App() {
           <img src={world} alt="Cadastrar" />
         </div>
         <strong>Cadastrar</strong>
-        <form>
+        <form onSubmit={handleAddDev}>
           <div className="input-block">
             <label htmlFor="github_username">
               <FaGithub color="#6ff3d6" size={14} />
@@ -47,6 +64,8 @@ function App() {
               name="github_username"
               id="github_username"
               placeholder="Seu usuário no Github"
+              value={githubUsername}
+              onChange={e => setGithubUsername(e.target.value)}
               required
             />
           </div>
@@ -59,6 +78,8 @@ function App() {
               name="techs"
               id="techs"
               placeholder="Tecnologias que você domina"
+              value={techs}
+              onChange={e => setTechs(e.target.value)}
               required
             />
           </div>
