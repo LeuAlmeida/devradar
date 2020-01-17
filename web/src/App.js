@@ -1,7 +1,12 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import './global.css';
 
 export default function src() {
-  return <div />;
+  return (
+    <div id="app">
+      <aside />
+      <main />
+    </div>
+  );
 }
