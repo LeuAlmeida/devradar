@@ -1,14 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaCode, FaThumbtack, FaChevronRight } from 'react-icons/fa';
+import { FaGithub, FaCode, FaThumbtack } from 'react-icons/fa';
 import api from './services/api';
 
 import './global.css';
 import './App.css';
 import './Sidebar.css';
 import './Main.css';
-
 import world from './assets/images/world.png';
+
+import DevItem from './components/DevItem';
 
 function App() {
   const [devs, setDevs] = useState([]);
@@ -136,21 +137,7 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => (
-            <li className="dev-item" key={dev.github_username}>
-              <header>
-                <img src={dev.avatar_url} alt={dev.name} />
-
-                <div className="user-info">
-                  <strong>{dev.name}</strong>
-                  <span>{dev.techs.join(', ')}</span>
-                </div>
-              </header>
-              <p>{dev.bio}</p>
-              <a href={`https://github.com/${dev.github_username}`}>
-                Acessar perfil no Github{' '}
-                <FaChevronRight color="#fff" size={12} />
-              </a>
-            </li>
+            <DevItem dev={dev} key={dev._id} />
           ))}
         </ul>
       </main>
