@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // import { Container } from './styles';
 
 function App() {
-  function incrementCounter() {}
+  const [counter, setCounter] = useState(0);
+
+  function incrementCounter() {
+    setCounter(counter + 1);
+  }
 
   return (
     <>
-      <h1>Contador: 0</h1>
+      <h1>Contador: {counter}</h1>
       <button type="button" onClick={() => incrementCounter()}>
         Adicionar
       </button>
