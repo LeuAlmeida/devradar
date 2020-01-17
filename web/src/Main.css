@@ -9,6 +9,12 @@ main ul {
   list-style: none;
 }
 
+@media (max-width: 650px) {
+  main ul {
+    grid-template-columns: 1fr;
+  }
+}
+
 li.dev-item {
   background: #fff;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
