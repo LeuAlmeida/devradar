@@ -3,6 +3,7 @@ import React from 'react';
 
 import './global.css';
 import './App.css';
+import './Sidebar.css';
 
 export default function src() {
   return (
