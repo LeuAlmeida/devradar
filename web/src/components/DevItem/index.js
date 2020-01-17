@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaChevronRight } from 'react-icons/fa';
+import { FaChevronRight, FaTrash, FaPencilAlt } from 'react-icons/fa';
 
 import './styles.css';
 
@@ -12,6 +12,14 @@ function DevItem({ dev }) {
         <div className="user-info">
           <strong>{dev.name}</strong>
           <span>{dev.techs.join(', ')}</span>
+        </div>
+        <div className="user-actions">
+          <button type="submit">
+            <FaTrash color="#FFF" size={12} />
+          </button>
+          <button type="submit">
+            <FaPencilAlt color="#FFF" size={12} />
+          </button>
         </div>
       </header>
       <p>{dev.bio}</p>
