@@ -7,15 +7,65 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
 body {
-  background: #E5E6F0;
+  background: url('assets/images/background.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* background: rgba(18, 76, 139, 1); */
+  /* background: -moz-linear-gradient(
+    -45deg,
+    rgba(18, 76, 139, 1) 0%,
+    rgba(20, 52, 112, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%, rgba(18, 76, 139, 1)),
+    color-stop(100%, rgba(20, 52, 112, 1))
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(18, 76, 139, 1) 0%,
+    rgba(20, 52, 112, 1) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(18, 76, 139, 1) 0%,
+    rgba(20, 52, 112, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    -45deg,
+    rgba(18, 76, 139, 1) 0%,
+    rgba(20, 52, 112, 1) 100%
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(18, 76, 139, 1) 0%,
+    rgba(20, 52, 112, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#124c8b', endColorstr='#143470', GradientType=1 ); */
   -webkit-font-smoothing: antialiased;
 }
 
-body, input, button {
+body:after {
+  background: #fff
+}
+
+body,
+input,
+button {
   font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+p {
+  letter-spacing: 0;
 }
