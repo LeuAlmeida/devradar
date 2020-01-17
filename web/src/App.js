@@ -93,7 +93,7 @@ export default function src() {
               odit fugiat delectus vitae tempore?
             </p>
             <a href="https://github.com/leualmeida">
-              Acessar perfil no Github <FaChevronRight color="#fff" size={14} />
+              Acessar perfil no Github <FaChevronRight color="#fff" size={12} />
             </a>
           </li>
         </ul>
