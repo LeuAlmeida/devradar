@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaCode, FaThumbtack } from 'react-icons/fa';
 import api from './services/api';
 
 import './global.css';
@@ -10,32 +9,10 @@ import './Main.css';
 import world from './assets/images/world.png';
 
 import DevItem from './components/DevItem';
+import DevForm from './components/DevForm';
 
 function App() {
   const [devs, setDevs] = useState([]);
-
-  const [githubUsername, setGithubUsername] = useState('');
-  const [techs, setTechs] = useState('');
-
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const { latitude, longitude } = position.coords;
-
-        setLatitude(latitude);
-        setLongitude(longitude);
-      },
-      err => {
-        console.log(err);
-      },
-      {
-        timeout: 30000,
-      }
-    );
-  }, []);
 
   useEffect(() => {
     async function loadDevs() {
@@ -47,18 +24,8 @@ function App() {
     loadDevs();
   }, []);
 
-  async function handleAddDev(e) {
-    e.preventDefault();
-
-    const response = await api.post('/devs', {
-      github_username: githubUsername,
-      techs,
-      latitude,
-      longitude,
-    });
-
-    setGithubUsername('');
-    setTechs('');
+  async function handleAddDev(data) {
+    const response = await api.post('/devs', data);
 
     setDevs([...devs, response.data]);
   }
@@ -70,69 +37,7 @@ function App() {
           <img src={world} alt="Cadastrar" />
         </div>
         <strong>Cadastrar</strong>
-        <form onSubmit={handleAddDev}>
-          <div className="input-block">
-            <label htmlFor="github_username">
-              <FaGithub color="#6ff3d6" size={14} />
-            </label>
-            <input
-              name="github_username"
-              id="github_username"
-              placeholder="Seu usuário no Github"
-              value={githubUsername}
-              onChange={e => setGithubUsername(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="input-block">
-            <label htmlFor="techs">
-              <FaCode color="#6ff3d6" size={14} />
-            </label>
-            <input
-              name="techs"
-              id="techs"
-              placeholder="Tecnologias que você domina"
-              value={techs}
-              onChange={e => setTechs(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="input-group">
-            <div className="input-block">
-              <label htmlFor="latitude">
-                <FaThumbtack color="#6ff3d6" size={14} />
-              </label>
-              <input
-                name="latitude"
-                id="latitude"
-                type="number"
-                placeholder="Latitude"
-                value={latitude}
-                onChange={e => setLatitude(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="input-block">
-              <label htmlFor="longitude">
-                <FaThumbtack color="#6ff3d6" size={14} />
-              </label>
-              <input
-                name="longitude"
-                id="longitude"
-                type="number"
-                placeholder="Longitude"
-                value={longitude}
-                onChange={e => setLongitude(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-
-          <button type="submit">Salvar</button>
-        </form>
+        <DevForm onSubmit={handleAddDev} />
       </aside>
       <main>
         <ul>
