@@ -11,6 +11,8 @@ import './Main.css';
 import world from './assets/images/world.png';
 
 function App() {
+  const [devs, setDevs] = useState([]);
+
   const [githubUsername, setGithubUsername] = useState('');
   const [techs, setTechs] = useState('');
 
@@ -32,6 +34,16 @@ function App() {
         timeout: 30000,
       }
     );
+  }, []);
+
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get('/devs');
+
+      setDevs(response.data);
+    }
+
+    loadDevs();
   }, []);
 
   async function handleAddDev(e) {
@@ -121,28 +133,23 @@ function App() {
       </aside>
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars3.githubusercontent.com/u/42948574?s=460&v=4"
-                alt="Léu Almeida"
-              />
+          {devs.map(dev => (
+            <li className="dev-item" key={dev.github_username}>
+              <header>
+                <img src={dev.avatar_url} alt={dev.name} />
 
-              <div className="user-info">
-                <strong>Léu Almeida</strong>
-                <span>ReactJS, React Native, Node.js</span>
-              </div>
-            </header>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
-              distinctio obcaecati velit quia beatae eius deserunt omnis
-              tempora, deleniti molestias, culpa dolore amet cumque! Possimus
-              odit fugiat delectus vitae tempore?
-            </p>
-            <a href="https://github.com/leualmeida">
-              Acessar perfil no Github <FaChevronRight color="#fff" size={12} />
-            </a>
-          </li>
+                <div className="user-info">
+                  <strong>{dev.name}</strong>
+                  <span>{dev.techs.join(', ')}</span>
+                </div>
+              </header>
+              <p>{dev.bio}</p>
+              <a href={`https://github.com/${dev.github_username}`}>
+                Acessar perfil no Github{' '}
+                <FaChevronRight color="#fff" size={12} />
+              </a>
+            </li>
+          ))}
         </ul>
       </main>
     </div>
