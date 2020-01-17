@@ -1,36 +1,71 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
+import { FaGithub, FaCode, FaThumbtack, FaChevronRight } from 'react-icons/fa';
+
 import './global.css';
 import './App.css';
 import './Sidebar.css';
 import './Main.css';
 
+import world from './assets/images/world.png';
+
 export default function src() {
   return (
     <div id="app">
       <aside>
+        <div className="register-icon">
+          <img src={world} alt="Cadastrar" />
+        </div>
         <strong>Cadastrar</strong>
         <form>
           <div className="input-block">
-            <label htmlFor="github_username">Usuário do Github</label>
-            <input name="github_username" id="github_username" required />
+            <label htmlFor="github_username">
+              <FaGithub color="#6ff3d6" size={14} />
+            </label>
+            <input
+              name="github_username"
+              id="github_username"
+              placeholder="Seu usuário no Github"
+              required
+            />
           </div>
 
           <div className="input-block">
-            <label htmlFor="techs">Tecnologias</label>
-            <input name="techs" id="techs" required />
+            <label htmlFor="techs">
+              <FaCode color="#6ff3d6" size={14} />
+            </label>
+            <input
+              name="techs"
+              id="techs"
+              placeholder="Tecnologias que você domina"
+              required
+            />
           </div>
 
           <div className="input-group">
             <div className="input-block">
-              <label htmlFor="latitude">Latitude</label>
-              <input name="latitude" id="latitude" required />
+              <label htmlFor="latitude">
+                <FaThumbtack color="#6ff3d6" size={14} />
+              </label>
+              <input
+                name="latitude"
+                id="latitude"
+                placeholder="Latitude"
+                required
+              />
             </div>
 
             <div className="input-block">
-              <label htmlFor="longitude">Longitude</label>
-              <input name="longitude" id="longitude" required />
+              <label htmlFor="longitude">
+                <FaThumbtack color="#6ff3d6" size={14} />
+              </label>
+              <input
+                name="longitude"
+                id="longitude"
+                placeholder="Longitude"
+                required
+              />
             </div>
           </div>
 
@@ -57,7 +92,9 @@ export default function src() {
               tempora, deleniti molestias, culpa dolore amet cumque! Possimus
               odit fugiat delectus vitae tempore?
             </p>
-            <a href="https://github.com/leualmeida">Acessar perfil no Github</a>
+            <a href="https://github.com/leualmeida">
+              Acessar perfil no Github <FaChevronRight color="#fff" size={14} />
+            </a>
           </li>
         </ul>
       </main>
