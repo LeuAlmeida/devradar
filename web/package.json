@@ -11,7 +11,7 @@
     "react-dom": "^16.12.0",
     "react-icons": "^3.8.0",
     "react-scripts": "3.3.0",
-    "toastify": "^2.0.0"
+    "react-toastify": "^5.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
