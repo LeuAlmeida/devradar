@@ -6,7 +6,12 @@ import Profile from './pages/Profile';
 
 const Routes = createAppContainer(
   createStackNavigator({
-    Main,
+    Main: {
+      screen: Main,
+      navigationOptions: {
+        title: 'DevRadar'
+      }
+    },
     Profile,
   })
 );
