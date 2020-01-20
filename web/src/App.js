@@ -1,6 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import api from './services/api';
 
 import './global.css';
@@ -32,9 +35,15 @@ function App() {
   }
 
   async function handleRemoveDev(id) {
-    await api.delete(`/devs/${id}`);
+    try {
+      await api.delete(`/devs/${id}`);
 
-    setDevs(devs.filter(dev => dev._id !== id));
+      setDevs(devs.filter(dev => dev._id !== id));
+
+      toast('Dev removido com sucesso.');
+    } catch {
+      toast.error('Erro ao remover esse dev.');
+    }
   }
 
   return (
@@ -53,6 +62,7 @@ function App() {
           ))}
         </ul>
       </main>
+      <ToastContainer />
     </div>
   );
 }
