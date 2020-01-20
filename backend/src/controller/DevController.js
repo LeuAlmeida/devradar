@@ -43,4 +43,20 @@ module.exports = {
 
     return res.json(devs);
   },
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const dev = await Dev.findOne({ _id: id });
+
+    if (!dev) {
+      return res.json({ error: 'Developer does not found.' });
+    }
+
+    dev.remove();
+
+    const devs = await Dev.find();
+
+    return res.json(devs);
+  },
 };
