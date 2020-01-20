@@ -10175,6 +10175,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
+toastify@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/toastify/-/toastify-2.0.0.tgz#35e1956af5bd980c89de59574d518b8484248eee"
+  integrity sha512-rjGgob9JVjuPIVWxR0jv6AZIf7WssGim+sDamzSKwIq4VKxu2cji0bRFbCt1kD+XdlQNi4HyurLnfINDoGEoyg==
+
 toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
