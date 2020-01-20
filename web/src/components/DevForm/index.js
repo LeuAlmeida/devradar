@@ -29,7 +29,7 @@ function DevForm({ onSubmit, editFields }) {
 
   useEffect(() => {
     setEdit(true);
-    const { techs, github_username, _id } = editFields;
+    const { techs, github_username } = editFields;
 
     setTechs(editFields ? techs : '');
     setGithubUsername(editFields ? github_username : '');
