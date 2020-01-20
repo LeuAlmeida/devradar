@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import api from './services/api';
@@ -30,6 +31,12 @@ function App() {
     setDevs([...devs, response.data]);
   }
 
+  async function handleRemoveDev(id) {
+    await api.delete(`/devs/${id}`);
+
+    setDevs(devs.filter(dev => dev._id !== id));
+  }
+
   return (
     <div id="app">
       <aside>
@@ -42,7 +49,7 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => (
-            <DevItem dev={dev} key={dev._id} />
+            <DevItem dev={dev} key={dev._id} onDelete={handleRemoveDev} />
           ))}
         </ul>
       </main>
