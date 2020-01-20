@@ -43,4 +43,61 @@ module.exports = {
 
     return res.json(devs);
   },
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const dev = await Dev.findOne({ _id: id });
+
+    if (!dev) {
+      return res.json({ error: 'Developer does not found.' });
+    }
+
+    dev.remove();
+
+    const devs = await Dev.find();
+
+    return res.json(devs);
+  },
+
+  async update(req, res) {
+    const { id } = req.params;
+    const { techs, github_username, ...rest } = req.body;
+
+    const dev = await Dev.findOne({ _id: id });
+
+    let techsArray;
+
+    if (techs) {
+      techsArray = parseStringAsArray(techs);
+    }
+
+    let name;
+    let avatar_url;
+    let bio;
+
+    if (github_username) {
+      const response = await axios.get(
+        `https://api.github.com/users/${github_username}`,
+      );
+
+      name = response.data.name;
+      avatar_url = response.data.avatar_url;
+      bio = response.data.bio;
+    }
+
+    const updatedDev = await Dev.updateOne(dev, {
+      techs: techs ? techsArray : dev.techs,
+      github_username,
+      name,
+      avatar_url,
+      bio,
+      ...rest,
+    });
+
+    return res.json({
+      modified: updatedDev.nModified,
+      ok: updatedDev.ok,
+    });
+  },
 };
