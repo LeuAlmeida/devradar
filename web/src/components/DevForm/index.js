@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { FaGithub, FaCode, FaThumbtack } from 'react-icons/fa';
 import './styles.css';
 
-function DevForm({ onSubmit }) {
+function DevForm({ onSubmit, editFields }) {
+  const [edit, setEdit] = useState(false);
   const [githubUsername, setGithubUsername] = useState('');
   const [techs, setTechs] = useState('');
 
@@ -26,6 +27,14 @@ function DevForm({ onSubmit }) {
     );
   }, []);
 
+  useEffect(() => {
+    setEdit(true);
+    const { techs, github_username, _id } = editFields;
+
+    setTechs(editFields ? techs : '');
+    setGithubUsername(editFields ? github_username : '');
+  }, [editFields]);
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -40,8 +49,25 @@ function DevForm({ onSubmit }) {
     setTechs('');
   }
 
+  async function handleEdit(e) {
+    const { _id } = editFields;
+
+    e.preventDefault();
+
+    await onSubmit({
+      github_username: githubUsername,
+      techs,
+      latitude,
+      longitude,
+      _id,
+    });
+
+    setGithubUsername('');
+    setTechs('');
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={edit ? handleEdit : handleSubmit}>
       <div className="input-block">
         <label htmlFor="github_username">
           <FaGithub color="#6ff3d6" size={14} />
@@ -50,7 +76,7 @@ function DevForm({ onSubmit }) {
           name="github_username"
           id="github_username"
           placeholder="Seu usuário no Github"
-          value={githubUsername}
+          value={githubUsername || ''}
           onChange={e => setGithubUsername(e.target.value)}
           required
         />
@@ -64,7 +90,7 @@ function DevForm({ onSubmit }) {
           name="techs"
           id="techs"
           placeholder="Tecnologias que você domina"
-          value={techs}
+          value={techs || ''}
           onChange={e => setTechs(e.target.value)}
           required
         />
