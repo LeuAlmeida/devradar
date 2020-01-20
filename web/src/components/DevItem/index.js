@@ -3,7 +3,11 @@ import { FaChevronRight, FaTrash, FaPencilAlt } from 'react-icons/fa';
 
 import './styles.css';
 
-function DevItem({ dev }) {
+function DevItem({ dev, onDelete }) {
+  function deleteDev() {
+    onDelete(dev._id);
+  }
+
   return (
     <li className="dev-item">
       <header>
@@ -15,10 +19,10 @@ function DevItem({ dev }) {
         </div>
         <div className="user-actions">
           <button type="submit">
-            <FaTrash color="#FFF" size={12} />
-          </button>
-          <button type="submit">
             <FaPencilAlt color="#FFF" size={12} />
+          </button>
+          <button type="submit" onClick={deleteDev}>
+            <FaTrash color="#FFF" size={12} />
           </button>
         </div>
       </header>
