@@ -3,9 +3,13 @@ import { FaChevronRight, FaTrash, FaPencilAlt } from 'react-icons/fa';
 
 import './styles.css';
 
-function DevItem({ dev, onDelete }) {
+function DevItem({ dev, onDelete, onEdit }) {
   function deleteDev() {
     onDelete(dev._id);
+  }
+
+  function editDev() {
+    onEdit(dev);
   }
 
   return (
@@ -15,11 +19,11 @@ function DevItem({ dev, onDelete }) {
 
         <div className="user-info">
           <strong>{dev.name}</strong>
-          <span>{dev.techs.join(', ')}</span>
+          <span>{dev.techs ? dev.techs.join(', ') : ''}</span>
         </div>
         <div className="user-actions">
           <button type="submit">
-            <FaPencilAlt color="#FFF" size={12} />
+            <FaPencilAlt color="#FFF" size={12} onClick={editDev} />
           </button>
           <button type="submit" onClick={deleteDev}>
             <FaTrash color="#FFF" size={12} />
