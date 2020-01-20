@@ -72,11 +72,13 @@ module.exports = {
       techsArray = parseStringAsArray(techs);
     }
 
+
     let name;
     let avatar_url;
     let bio;
+    let updatedDev;
 
-    if (github_username) {
+    if (github_username !== dev.github_username) {
       const response = await axios.get(
         `https://api.github.com/users/${github_username}`,
       );
@@ -84,20 +86,20 @@ module.exports = {
       name = response.data.name;
       avatar_url = response.data.avatar_url;
       bio = response.data.bio;
+
+      updatedDev = await Dev.updateOne(dev, {
+        techs: techs ? techsArray : dev.techs,
+        github_username,
+        name,
+        avatar_url,
+        bio,
+        ...rest,
+      });
     }
 
-    const updatedDev = await Dev.updateOne(dev, {
-      techs: techs ? techsArray : dev.techs,
-      github_username,
-      name,
-      avatar_url,
-      bio,
-      ...rest,
-    });
-
     return res.json({
-      modified: updatedDev.nModified,
-      ok: updatedDev.ok,
+      modified: updatedDev ? updatedDev.nModified : null,
+      ok: updatedDev ? updatedDev.ok : null,
     });
   },
 };
