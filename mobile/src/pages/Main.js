@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Image } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import { StyleSheet, Image, View, Text } from 'react-native';
+import MapView, { Marker, Callout } from 'react-native-maps';
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync,
@@ -16,6 +16,20 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     borderWidth: 2,
     borderColor: '#FFF',
+  },
+  callout: {
+    width: 260,
+  },
+  devName: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  devBio: {
+    color: '#666',
+    marginTop: 5,
+  },
+  devTechs: {
+    marginTop: 5,
   },
 });
 
@@ -59,6 +73,19 @@ function Main() {
             uri: 'https://avatars2.githubusercontent.com/u/42948574?v=4',
           }}
         />
+
+        <Callout>
+          <View style={styles.callout}>
+            <Text style={styles.devName}>Léu Almeida</Text>
+            <Text style={styles.devBio}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              accusamus voluptate harum dolore numquam aspernatur omnis
+              inventore, culpa repellat facere consectetur deserunt aut velit ut
+              quod molestiae pariatur qui hic!
+            </Text>
+            <Text style={styles.devTechs}>ReactJS, React Native, Node.js</Text>
+          </View>
+        </Callout>
       </Marker>
     </MapView>
   );
