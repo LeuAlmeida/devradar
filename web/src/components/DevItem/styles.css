@@ -48,6 +48,7 @@ li.dev-item header .user-actions button + button {
   font-size: 13px;
   color: #bdbdbd;
   margin-top: 2px;
+  text-transform: capitalize;
 }
 
 li.dev-item p {
