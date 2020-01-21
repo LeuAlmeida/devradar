@@ -9,14 +9,14 @@ const Routes = createAppContainer(
     Main: {
       screen: Main,
       navigationOptions: {
-        title: 'DevRadar'
+        title: 'DevRadar',
       },
       Profile: {
         screen: Profile,
         navigationOptions: {
-          title: 'Perfil no Github'
-        }
-      }
+          title: 'Perfil no Github',
+        },
+      },
     },
     Profile,
   })
