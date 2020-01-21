@@ -21,7 +21,7 @@ module.exports = {
         name, login, avatar_url, bio,
       } = response.data;
 
-      const nameOrLogin = name === null ? login : name;
+      const nameOrLogin = name === null || name === undefined ? login : name;
 
       const techsArray = parseStringAsArray(techs.toLowerCase());
 
