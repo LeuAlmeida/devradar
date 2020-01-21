@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
-import MapView from 'react-native-maps';
+import { StyleSheet, Image } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync,
@@ -9,6 +9,13 @@ import {
 const styles = StyleSheet.create({
   map: {
     flex: 1,
+  },
+  avatar: {
+    width: 54,
+    height: 54,
+    borderRadius: 35,
+    borderWidth: 2,
+    borderColor: '#FFF',
   },
 });
 
@@ -42,7 +49,19 @@ function Main() {
     return null;
   }
 
-  return <MapView initialRegion={currentRegion} style={styles.map} />;
+  return (
+    <MapView initialRegion={currentRegion} style={styles.map}>
+      <Marker coordinate={{ latitude: -23.6477446, longitude: -46.5644216 }}>
+        <Image
+          style={styles.avatar}
+          resizeMode="cover"
+          source={{
+            uri: 'https://avatars2.githubusercontent.com/u/42948574?v=4',
+          }}
+        />
+      </Marker>
+    </MapView>
+  );
 }
 
 export default Main;
