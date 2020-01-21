@@ -2,7 +2,7 @@
   "name": "devradar-web",
   "version": "1.0.0",
   "private": true,
-  "homepage": "http://1dois.com.br/devradar",
+  "homepage": "http://leunardo.dev/devradar",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
