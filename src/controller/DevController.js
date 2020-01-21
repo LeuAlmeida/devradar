@@ -17,7 +17,11 @@ module.exports = {
         `https://api.github.com/users/${github_username}`,
       );
 
-      const { name = login, avatar_url, bio } = response.data;
+      const {
+        name, login, avatar_url, bio,
+      } = response.data;
+
+      const nameOrLogin = name === null ? login : name;
 
       const techsArray = parseStringAsArray(techs);
 
@@ -28,7 +32,7 @@ module.exports = {
 
       dev = await Dev.create({
         github_username,
-        name,
+        name: nameOrLogin,
         avatar_url,
         bio,
         techs: techsArray,
