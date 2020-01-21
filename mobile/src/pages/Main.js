@@ -54,7 +54,7 @@ function Main({ navigation }) {
       },
     });
 
-    setDevs(response.data);
+    setDevs(response.data.devs);
   }
 
   function handleRegionChanged(region) {
@@ -72,34 +72,37 @@ function Main({ navigation }) {
         initialRegion={currentRegion}
         style={styles.map}
       >
-        <Marker coordinate={{ latitude: -23.6477446, longitude: -46.5644216 }}>
-          <Image
-            style={styles.avatar}
-            resizeMode="cover"
-            source={{
-              uri: 'https://avatars2.githubusercontent.com/u/42948574?v=4',
-            }}
-          />
-
-          <Callout
-            onPress={() => {
-              navigation.navigate('Profile', { github_username: 'LeuAlmeida' });
+        {devs.map(dev => (
+          <Marker
+            key={dev._id}
+            coordinate={{
+              longitude: dev.location.coordinates[0],
+              latitude: dev.location.coordinates[1],
             }}
           >
-            <View style={styles.callout}>
-              <Text style={styles.devName}>Léu Almeida</Text>
-              <Text style={styles.devBio}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptas, accusamus voluptate harum dolore numquam aspernatur
-                omnis inventore, culpa repellat facere consectetur deserunt aut
-                velit ut quod molestiae pariatur qui hic!
-              </Text>
-              <Text style={styles.devTechs}>
-                ReactJS, React Native, Node.js
-              </Text>
-            </View>
-          </Callout>
-        </Marker>
+            <Image
+              style={styles.avatar}
+              resizeMode="cover"
+              source={{
+                uri: dev.avatar_url,
+              }}
+            />
+
+            <Callout
+              onPress={() => {
+                navigation.navigate('Profile', {
+                  github_username: dev.github_username,
+                });
+              }}
+            >
+              <View style={styles.callout}>
+                <Text style={styles.devName}>{dev.name}</Text>
+                <Text style={styles.devBio}>{dev.bio}</Text>
+                <Text style={styles.devTechs}>{dev.techs.join(', ')}</Text>
+              </View>
+            </Callout>
+          </Marker>
+        ))}
       </MapView>
 
       <View style={styles.searchForm}>
@@ -111,7 +114,7 @@ function Main({ navigation }) {
           autoCorrect={false}
         />
 
-        <TouchableOpacity onPress={() => {}} style={styles.loadButton}>
+        <TouchableOpacity onPress={loadDevs} style={styles.loadButton}>
           <MaterialIcons name="my-location" size={20} color="#FFF" />
         </TouchableOpacity>
       </View>
