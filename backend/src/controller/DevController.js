@@ -76,7 +76,6 @@ module.exports = {
       techsArray = parseStringAsArray(techs);
     }
 
-
     let name;
     let avatar_url;
     let bio;
