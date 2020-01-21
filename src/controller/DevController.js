@@ -23,7 +23,7 @@ module.exports = {
 
       const nameOrLogin = name === null ? login : name;
 
-      const techsArray = parseStringAsArray(techs);
+      const techsArray = parseStringAsArray(techs.toLowerCase());
 
       const location = {
         type: 'Point',
