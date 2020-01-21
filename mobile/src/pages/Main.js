@@ -6,34 +6,7 @@ import {
   getCurrentPositionAsync,
 } from 'expo-location';
 
-const styles = StyleSheet.create({
-  map: {
-    flex: 1,
-  },
-  avatar: {
-    width: 54,
-    height: 54,
-    borderRadius: 35,
-    borderWidth: 2,
-    borderColor: '#FFF',
-  },
-  callout: {
-    width: 260,
-  },
-  devName: {
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  devBio: {
-    color: '#666',
-    marginTop: 5,
-  },
-  devTechs: {
-    marginTop: 5,
-  },
-});
-
-function Main() {
+function Main({ navigation }) {
   const [currentRegion, setCurrentRegion] = useState(null);
 
   useEffect(() => {
@@ -74,7 +47,11 @@ function Main() {
           }}
         />
 
-        <Callout>
+        <Callout
+          onPress={() => {
+            navigation.navigate('Profile', { github_username: 'LeuAlmeida' });
+          }}
+        >
           <View style={styles.callout}>
             <Text style={styles.devName}>Léu Almeida</Text>
             <Text style={styles.devBio}>
@@ -90,5 +67,32 @@ function Main() {
     </MapView>
   );
 }
+
+const styles = StyleSheet.create({
+  map: {
+    flex: 1,
+  },
+  avatar: {
+    width: 54,
+    height: 54,
+    borderRadius: 35,
+    borderWidth: 2,
+    borderColor: '#FFF',
+  },
+  callout: {
+    width: 260,
+  },
+  devName: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  devBio: {
+    color: '#666',
+    marginTop: 5,
+  },
+  devTechs: {
+    marginTop: 5,
+  },
+});
 
 export default Main;
