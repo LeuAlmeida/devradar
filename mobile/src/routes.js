@@ -1,5 +1,7 @@
+import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import Main from './pages/Main';
 import Profile from './pages/Profile';
@@ -25,8 +27,16 @@ const Routes = createAppContainer(
         headerTintColor: '#FFF',
         headerBackTitleVisible: false,
         headerStyle: {
-          backgroundColor: '#7159c1',
+          backgroundColor: '#33CBD4',
         },
+        headerBackground: () => (
+          <LinearGradient
+            colors={['#42F4E8', '#2BB7B6', '#42F4E8']}
+            style={{ flex: 1 }}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+          />
+        ),
         headerTitleAlign: 'center',
       },
     }
