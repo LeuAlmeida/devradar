@@ -5,6 +5,7 @@ import {
   View,
   Text,
   TextInput,
+  Platform,
   TouchableOpacity,
 } from 'react-native';
 import MapView, { Marker, Callout } from 'react-native-maps';
@@ -12,6 +13,7 @@ import {
   requestPermissionsAsync,
   getCurrentPositionAsync,
 } from 'expo-location';
+import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import api from '../services/api';
@@ -63,7 +65,43 @@ function Main({ navigation }) {
   }
 
   if (!currentRegion) {
-    return null;
+    return (
+      <>
+        <View style={styles.disabledLocation}>
+          <Text style={styles.disabledLocationText}>
+            Para utilizar esta aplicação, você precisa habilitar o GPS do seu
+            dispositivo.
+          </Text>
+
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate(
+                'Location',
+                Platform.OS === 'ios'
+                  ? 'https://support.apple.com/pt-br/HT207092'
+                  : 'https://support.google.com/accounts/answer/3467281?hl=pt-BR'
+              )
+            }
+            style={styles.disabledLocationButton}
+          >
+            <Text style={styles.disabledLocationButtonText}>Saiba mais</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Image
+          source={{
+            uri:
+              'http://1dois.com.br/devradar/static/media/background.09b2b12b.png',
+          }}
+          style={{
+            zIndex: -5,
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+          }}
+        />
+      </>
+    );
   }
 
   return (
@@ -168,8 +206,8 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     height: 50,
-    backgroundColor: '#FFF',
-    color: '#333',
+    backgroundColor: '#0F4F8B',
+    color: '#fff',
     borderRadius: 25,
     paddingHorizontal: 20,
     fontSize: 16,
@@ -179,6 +217,7 @@ const styles = StyleSheet.create({
       width: 4,
       height: 4,
     },
+    borderColor: 'red',
     elevation: 2,
   },
 
@@ -190,6 +229,42 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 15,
+  },
+
+  disabledLocation: {
+    flex: 1,
+    zIndex: 5,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    paddingHorizontal: '10%',
+  },
+
+  disabledLocationText: {
+    alignSelf: 'center',
+    textAlign: 'center',
+    color: '#FFF',
+    fontSize: 16,
+  },
+
+  disabledLocationButton: {
+    marginTop: 20,
+    backgroundColor: '#4FBDEF',
+    borderRadius: 25,
+    width: '100%',
+    padding: 10,
+    maxWidth: 250,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  disabledLocationButtonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
   },
 });
 
