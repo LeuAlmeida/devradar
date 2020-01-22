@@ -25,7 +25,7 @@ const Routes = createAppContainer(
       LocationHelp: {
         screen: LocationHelp,
         navigationOptions: {
-          title: 'Configurações de Localização',
+          title: 'Localização Manual',
         },
       },
     },
