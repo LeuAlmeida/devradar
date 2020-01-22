@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import Main from './pages/Main';
 import Profile from './pages/Profile';
+import LocationHelp from './pages/LocationHelp';
 
 const Routes = createAppContainer(
   createStackNavigator(
@@ -19,6 +20,12 @@ const Routes = createAppContainer(
         screen: Profile,
         navigationOptions: {
           title: 'Perfil no Github',
+        },
+      },
+      LocationHelp: {
+        screen: LocationHelp,
+        navigationOptions: {
+          title: 'Configurações de Localização',
         },
       },
     },
