@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import { WebView } from 'react-native-webview';
 
-// import { Container } from './styles';
+function LocationHelp({ navigation }) {
+  const helpUri = navigation.getParam('help_url');
 
-function LocationHelp() {
-  return <View />;
+  return <WebView style={{ flex: 1 }} source={{ uri: helpUri }} />;
 }
 
 export default LocationHelp;
