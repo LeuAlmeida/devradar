@@ -38,7 +38,7 @@ const Routes = createAppContainer(
         },
         headerBackground: () => (
           <LinearGradient
-            colors={['#42F4E8', '#2BB7B6', '#42F4E8']}
+            colors={['#153C77', '#1e4e96', '#153C77']}
             style={{ flex: 1 }}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
