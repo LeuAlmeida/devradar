@@ -53,7 +53,7 @@ function Main({ navigation }) {
       params: {
         latitude,
         longitude,
-        techs,
+        techs: techs.toLowerCase(),
       },
     });
 
@@ -70,21 +70,23 @@ function Main({ navigation }) {
         <View style={styles.disabledLocation}>
           <Text style={styles.disabledLocationText}>
             Para utilizar esta aplicação, você precisa habilitar o GPS do seu
-            dispositivo.
+            dispositivo. Caso já esteja ativo, por favor aguarde.
           </Text>
 
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate(
-                'Location',
-                Platform.OS === 'ios'
-                  ? 'https://support.apple.com/pt-br/HT207092'
-                  : 'https://support.google.com/accounts/answer/3467281?hl=pt-BR'
-              )
+              navigation.navigate('LocationHelp', {
+                help_url:
+                  Platform.OS === 'ios'
+                    ? 'https://support.apple.com/pt-br/HT207092'
+                    : 'https://support.google.com/accounts/answer/3467281?hl=pt-BR',
+              })
             }
             style={styles.disabledLocationButton}
           >
-            <Text style={styles.disabledLocationButtonText}>Saiba mais</Text>
+            <Text style={styles.disabledLocationButtonText}>
+              Ativar manualmente
+            </Text>
           </TouchableOpacity>
         </View>
 
@@ -146,9 +148,11 @@ function Main({ navigation }) {
 
       <View style={styles.searchForm}>
         <TextInput
+          returnKeyType="done"
+          onKeyPress={loadDevs}
           style={styles.searchInput}
           placeholder="Buscar devs por techs..."
-          placeholderTextColor="#999"
+          placeholderTextColor="#FFF"
           autoCapitalize="words"
           autoCorrect={false}
           value={techs}
@@ -192,6 +196,7 @@ const styles = StyleSheet.create({
 
   devTechs: {
     marginTop: 5,
+    textTransform: 'capitalize',
   },
 
   searchForm: {
@@ -206,7 +211,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     height: 50,
-    backgroundColor: '#0F4F8B',
+    backgroundColor: '#115b94',
     color: '#fff',
     borderRadius: 25,
     paddingHorizontal: 20,
@@ -217,14 +222,13 @@ const styles = StyleSheet.create({
       width: 4,
       height: 4,
     },
-    borderColor: 'red',
     elevation: 2,
   },
 
   loadButton: {
     width: 50,
     height: 50,
-    backgroundColor: '#8E4DFF',
+    backgroundColor: '#115b94',
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
