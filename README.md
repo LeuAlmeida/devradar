@@ -5,7 +5,7 @@
 <h1 align="center">DevRadar</h1>
 
 <blockquote align="center">
-Find devs near to you and let's code!
+:mag_right: Find devs near to you and let's code!
 </blockquote>
 
 <p align="center">
@@ -36,7 +36,7 @@ All the knowledges available on this project was reached at the Omnistack Week 1
 
 First get all the requirements installed on your system.
 
-### Prerequisites
+### :electric_plug: Prerequisites
 
 - [Node.js LTS (>= 10.x)](https://nodejs.org/)
 - [Yarn (>= 1.19)](https://yarnpkg.com/) or [NPM (>= 6.9)](https://www.npmjs.com/)
@@ -53,7 +53,7 @@ $ git clone https://github.com/LeuAlmeida/devradar.git
 $ cd devradar
 ```
 
-### Getting started the API Restful backend
+### :closed_lock_with_key: Getting started the API Restful backend
 
 You will need to run the API using your own [MongoDB Cluster](https://docs.atlas.mongodb.com/tutorial/create-new-cluster/).
 
@@ -94,7 +94,7 @@ $ nodemon src/index.js
 # https://localhost:3335
 ```
 
-### Getting started the front-end web
+### :computer: Getting started the front-end web
 
 This project is running with a [deployed API](http://67.207.87.192:3335/devs), but you can use your own.
 
@@ -121,7 +121,7 @@ $ yarn start
 # https://localhost:3000
 ```
 
-### Getting started the Mobile App
+### :iphone: Getting started the Mobile App
 
 This project was created with the [Expo Cli](https://expo.io/learn).
 
@@ -153,8 +153,16 @@ $ yarn start
 You can try a DevRadar online demo in [https://1dois.com.br/devradar](https://1dois.com.br/devradar) (without navigator current location)
 
 
-## License
+## :copyright: License
 
 MIT License.
 
 See [LICENSE.md](LICENSE.md) for details.
+
+Logo design made by [Luk Trevis](https://behance.com/luktrevis)
+
+<hr/>
+
+<h3 align="center">
+<a href="http://linkedin.com/in/leonardoalmeida99">Connect me in LinkedIn</a> | <a href="http://behance.net/almeida99">See my Behance</a> | <a href="https://leunardo.dev">Click here to go to my CV</a>
+</h3>
