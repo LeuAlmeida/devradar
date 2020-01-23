@@ -150,7 +150,7 @@ $ yarn start
 
 ## Demo
 
-You can try a DevRadar online demo in [https://1dois.com.br/devradar](https://1dois.com.br/devradar) (without navigator current location)
+You can try a DevRadar online demo in [http://1dois.com.br/devradar](http://1dois.com.br/devradar) (without navigator current location)
 
 
 ## :copyright: License
