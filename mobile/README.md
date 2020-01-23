@@ -24,7 +24,7 @@
 
 ## Introduction
 
-[DevRadar](https://github.com/LeuAlmeida/devradar) is a fullstack project created to find developers near you based on your navigator location. 
+[DevRadar](https://github.com/LeuAlmeida/devradar) is a fullstack project created to find developers near you based on your navigator location.
 * In the [backend](./backend) you can use our API Restful to manage your application.
 * In the [frontend version](./web) you can create and maintenance the list of devs.
 * In the [mobile app](./mobile) you can view and find for devs near you.
@@ -159,7 +159,7 @@ MIT License.
 
 See [LICENSE.md](LICENSE.md) for details.
 
-Logo design made by [Luk Trevis](https://behance.com/luktrevis)
+Logo design made by [Luk Trevis](https://behance.net/luktrevis)
 
 <hr/>
 

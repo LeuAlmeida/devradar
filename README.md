@@ -159,7 +159,7 @@ MIT License.
 
 See [LICENSE.md](LICENSE.md) for details.
 
-Logo design made by [Luk Trevis](https://behance.com/luktrevis)
+Logo design made by [Luk Trevis](https://behance.net/luktrevis)
 
 <hr/>
 
