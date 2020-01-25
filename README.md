@@ -2,7 +2,7 @@
 <img width="300" alt="DevRadar" src="./presentation/dark-logo.png" />
 </p>
 
-<h1 align="center">DevRadar</h1>
+<h1 align="center">DevRadar from Omnistack Week 10</h1>
 
 <blockquote align="center">
 :mag_right: Find devs near you and let's code!
