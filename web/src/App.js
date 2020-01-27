@@ -28,7 +28,7 @@ function App() {
     }
 
     loadDevs();
-  }, [handleUpdateDev]);
+  }, [devs]);
 
   async function handleAddDev(data) {
     try {
